@@ -1,0 +1,374 @@
+/* Core Layout and Typography */
+:root {
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --text-primary: #2d3748;
+    --text-muted: #718096;
+    --accent: #2b6cb0;
+    --border-color: #e2e8f0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* Navbar styles */
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.nav-logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    margin-left: 1.5rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--accent);
+}
+
+.search-btn {
+    background: none;
+    border: none;
+    color: var(--accent);
+    cursor: pointer;
+    margin-left: 1.5rem;
+    font-size: 1.1rem;
+}
+
+/* Main Container Grid */
+.main-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 3rem;
+    padding: 0 2rem;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    background-color: transparent;
+}
+
+.profile-card {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.avatar-placeholder {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+
+.profile-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.info-list {
+    list-style: none;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+}
+
+.info-list li {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.info-list i {
+    width: 25px;
+    color: var(--text-primary);
+}
+
+.info-list a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.info-list a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+/* Content Area Styles */
+.content-area {
+    background-color: transparent;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.content-area p {
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+    color: #4a5568;
+    text-align: justify;
+}
+
+/* Graphic Placeholder Styling */
+.visual-container {
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chart-placeholder {
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
+    background-color: var(--card-bg);
+    border: 1px dashed var(--border-color);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+}
+
+.chart-caption {
+    text-align: center;
+    margin-top: 1rem;
+    color: var(--text-muted);
+    font-size: 0.9rem !important;
+    font-style: italic;
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInAnimation 0.8s ease-out forwards;
+}
+
+.slide-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInAnimation 1s ease-out 0.3s forwards;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    /* gap: 2rem; Adds consistent spacing between your main sections */
+}
+
+.section-divider {
+    grid-column: 1 / -1;
+    border: 0;
+    border-top: 1px solid var(--border-color);
+    margin: 2rem 0;
+}
+
+.project-card, .fav-item {
+    background-color: var(--card-bg);
+    padding: 0.75rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    margin-top: 0.5rem;
+}
+
+.project-card h3, .fav-item h4 {
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.project-title {
+    font-size: 0.95rem;
+    font-weight: normal;
+    color: var(--text-primary);
+    line-height: 1.4;
+}
+
+.project-date {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: normal;
+    white-space: nowrap;
+}
+
+.inline-repo-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-left: 0.4rem;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.inline-repo-link:hover {
+    color: var(--accent);
+}
+
+.publication-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.publication-list li {
+    background-color: var(--card-bg);
+    padding: 1rem;
+    border-left: 4px solid var(--accent);
+    margin-top: 1rem;
+    border-radius: 0 6px 6px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.favourites-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.fav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* Centers items horizontally */
+    text-align: center;     /* Centers the text headings and paragraphs */
+    height: 100%;           /* Ensures the card takes full height of the grid cell */
+}
+
+/* Optional: Add space above the image if needed */
+.fav-item img {
+    margin-top: 1rem;
+    max-width: 100%;        /* Prevents the image from overflowing the card */
+    height: auto;
+    margin-top: auto;
+}
+
+@media (max-width: 768px) {
+    .favourites-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@keyframes fadeInAnimation {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .nav-links a {
+        margin: 0 0.75rem;
+    }
+}
+
+.search-container {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    margin-left: 1.5rem;
+}
+
+#search-input {
+    width: 0;
+    opacity: 0;
+    border: none;
+    outline: none;
+    padding: 0.4rem 0;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+#search-input.active {
+    width: 150px;
+    opacity: 1;
+    padding: 0.4rem 0.5rem;
+}
+
+/* Highlight class for matching search text */
+.search-highlight {
+    background-color: #fef08a; /* Soft yellow highlight */
+    color: #000;
+    border-radius: 2px;
+}
