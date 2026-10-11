@@ -32,22 +32,24 @@
       gtag('config', 'G-LG8MHSLBJQ');
     </script>    
 </head>
-<body>
+<body id="top">
 
     <header class="navbar">
         <div class="nav-container">
             <a href="#" class="nav-logo">Mohammad (Saeed) Montazeri</a>
-            <nav class="nav-links">
+            <nav class="nav-links" aria-label="Main navigation">
                 <a href="#about" class="active">About</a>
-                <a href="#research">Research</a>
                 <a href="#publications">Publications</a>
+                <a href="#projects">Projects</a>
                 <a href="#favourites">Favorites</a>
+                <a class="cv-link" href="assets/CV_Sep2026.pdf" target="_blank" rel="noopener noreferrer" aria-label="CV (PDF, opens in a new tab)">CV <span aria-hidden="true">↗</span></a>
                 <div class="search-container">
-    <input type="text" id="search-input" placeholder="Search site...">
-    <button class="search-btn" id="search-toggle"><i class="fas fa-search"></i></button>
+    <input type="text" id="search-input" placeholder="Search site..." aria-label="Search site">
+    <button class="search-btn" id="search-toggle" aria-label="Toggle site search" aria-expanded="false" aria-controls="search-input"><i class="fas fa-search"></i></button>
 </div>
             </nav>
         </div>
+        <div class="reading-progress" aria-hidden="true"><div id="reading-progress-fill"></div></div>
     </header>
 
     <main class="main-container fade-in">
@@ -55,10 +57,10 @@
         <aside class="sidebar">
             <div class="profile-card">
                 <div class="avatar-placeholder">
-                    <img src="assets/Profile.jpg" alt="Avatar">
+                    <img src="assets/Profile.jpg" alt="Portrait of Mohammad Montazeri">
                 </div>
                 <h2>Mohammad Montazeri</h2>
-                <p class="subtitle">MSc in Mechanical Engineering</p>
+                <p class="subtitle">M.Sc. Student · Mechanical Engineering</p>
             </div>
             
             <ul class="info-list">
@@ -78,23 +80,84 @@
         <section id="about" class="content-area">
             <h1 class="section-title">About Me</h1>
             <p>
-                I am a researcher and engineer specializing in robotics, biomechanics, mechatronics, and AI. 
-                I received my bachelor's degree from my dear University of Tehran. I served as a research assistant in the Human and Robot Interaction Lab (<i><a  style="color: rgb(5, 0, 49); font-size: 16px;" href="https://www.taarlab.com">TAARLAB</a></i>), working on my bachelor's project titled <i>kinematic modeling and redundancy resolution of bio-inspired hyper-redundant serial-parallel Gough-Stewart manipulators via deep-learning methods</i>, under the supervision of Dr. Mehdi Tale Masouleh. I'm currently studying master's degree at Sharif University of Technology in Mechanical Engineering under supervision of Dr. Saeed Behzadipour.
-                I have also a one year experience in tutoring robotics (mechanics, electronics, programming) in Sigma Robotics Educational Group. 
+                I am an M.Sc. student in Mechanical Engineering at Sharif University of Technology,
+                working with Prof. Saeed Behzadipour in the Medical Robotics Laboratory.
+                My research focuses on computer vision for fine hand-motion tracking and telerehabilitation.
             </p>
-            
-            <div class="visual-container slide-up">
-                <div class="chart-placeholder">
-                    <img src="assets/3D_Obstacle.svg" width="70%" alt="3D Obstacle Visualization">
-                    <p class="chart-caption">From bachelor's project, schematic 3D visualization of obstacle avoidance</p>
+            <p>
+                I received my B.Sc. from the University of Tehran, where I worked with
+                Prof. Mehdi Tale Masouleh at <a href="https://www.taarlab.com">TaarLab</a>
+                on deep-learning-based kinematics and redundancy resolution for bio-inspired Gough–Stewart robots.
+            </p>
+
+            <div class="research-carousel" role="region" aria-roledescription="carousel" aria-label="Research highlights" tabindex="0">
+                <div class="carousel-viewport">
+                    <div class="carousel-track">
+                        <figure class="carousel-slide" id="slide-1" role="group" aria-roledescription="slide" aria-label="1 of 3">
+                            <img src="assets/3D_Obstacle.svg" alt="Schematic 3D visualization of a Gough–Stewart robot avoiding an obstacle" width="960" height="600">
+                            <figcaption>From bachelor's project, schematic 3D visualization of obstacle avoidance</figcaption>
+                        </figure>
+                        <figure class="carousel-slide" id="slide-2" role="group" aria-roledescription="slide" aria-label="2 of 3">
+                            <img src="assets/upper-limb-platforms.png" alt="Three serially connected Gough–Stewart segments representing the human upper limb" width="960" height="600" loading="lazy">
+                            <figcaption>Three-segment Gough–Stewart model of the human upper limb — ICBME 2026 manuscript, Fig. 2.</figcaption>
+                        </figure>
+                        <figure class="carousel-slide" id="slide-3" role="group" aria-roledescription="slide" aria-label="3 of 3">
+                            <img src="assets/two-segment-platform.png" alt="Hybrid manipulator with two serially connected Gough–Stewart platforms" width="960" height="600" loading="lazy">
+                            <figcaption>Two-segment hybrid Gough–Stewart manipulator for redundancy-resolution research — ICBME 2026 manuscript, Fig. 5.</figcaption>
+                        </figure>
+                    </div>
                 </div>
+                <div class="carousel-controls" hidden>
+                    <button type="button" class="carousel-arrow" data-direction="-1" aria-label="Previous image">←</button>
+                    <div class="carousel-dots" role="group" aria-label="Choose an image">
+                        <button type="button" class="carousel-dot" aria-label="Show image 1: obstacle avoidance" aria-controls="slide-1" aria-current="true"></button>
+                        <button type="button" class="carousel-dot" aria-label="Show image 2: upper-limb model" aria-controls="slide-2"></button>
+                        <button type="button" class="carousel-dot" aria-label="Show image 3: two-segment manipulator" aria-controls="slide-3"></button>
+                    </div>
+                    <button type="button" class="carousel-arrow" data-direction="1" aria-label="Next image">→</button>
+                    <button type="button" class="carousel-pause" aria-label="Pause slideshow">Pause</button>
+                </div>
+                <span class="sr-only carousel-status" aria-live="polite" aria-atomic="true"></span>
             </div>
         </section>
 
         <hr class="section-divider">
 
-        <section id="research" class="content-area fade-in">
-            <h1 class="section-title">Research</h1>
+
+
+        <!-- Publications Section -->
+        <section id="publications" class="content-area fade-in">
+            <h1 class="section-title">Publications</h1>
+            <ul class="publication-list">
+                <li>
+                    <span class="publication-status">Under review · ICBME 2026</span><br>
+                    <strong>Redundancy Resolution of Rehabilitative Multi-Segment Gough-Stewart Platforms using Genetic Algorithm</strong><br>
+                    <u>M. Montazeri</u>, P. Namazian, and M. Tale Masouleh.<br>
+                    <i>Submitted to the 33rd National and 11th International Iranian Conference on Biomedical Engineering.</i>
+                </li>
+                <li style="color:#666; font-size:0.95em;">
+                    <strong>Kinematic Modeling of Bio-Inspired Hybrid Gough-Stewart Manipulator via Deep-Learning Methods</strong><br>
+                    <u>M. Montazeri</u>, et al., <i>13th RSI International Conference on Robotics and Mechatronics (ICRoM)</i> | December 2025.<br> 
+                    <a href="mailto:mohammadmontazeri313@gmail.com?subject=Publication%20Request" style="color:rgb(5, 0, 49); text-decoration:underline;">Full text available upon request.</a>
+                </li>
+
+                <li style="color:#666; font-size:0.95em;">
+                    <strong>A 160-Page Self-Study Guidebook for the Python Programming Language, from Beginner to Advanced</strong><br>
+                    <a href="https://drive.google.com/file/d/1__X_MLyLhsmYOrXzW-umEPQC2Oh2SD-p/view?usp=sharing" style="color:rgb(5, 0, 49); text-decoration:underline;">Under Review</a> | 2022 
+                </li>
+
+                <li style="color:#666; font-size:0.95em;">
+                    <strong>Poetry Writer and Article Contributor</strong><br>
+                    <a href="https://t.me/saengsci/491" style="color:rgb(5, 0, 49); text-decoration:underline;">Simorgh-e Fanni</a> Student Magazine, University of Tehran | 2023 <br>
+                </li>
+
+            </ul>
+        </section>
+
+        <hr class="section-divider">
+
+        <section id="projects" class="content-area fade-in">
+            <h1 class="section-title">Projects</h1>
             
             <!-- Project 1 (2025) -->
             <div class="project-card">
@@ -149,32 +212,6 @@
             </div>        
         </section>
 
-
-<hr class="section-divider">
-
-        <!-- Publications Section -->
-        <section id="publications" class="content-area fade-in">
-            <h1 class="section-title">Publications</h1>
-            <ul class="publication-list">
-                <li style="color:#666; font-size:0.95em;">
-                    <strong>Kinematic Modeling of Bio-Inspired Hybrid Gough-Stewart Manipulator via Deep-Learning Methods</strong><br>
-                    <u>M. Montazeri</u>, et al., <i>13th International Conference on Robotics and Mechatronics (ICROM)</i> | 2026.<br> 
-                    <a href="mailto:mohammadmontazeri313@gmail.com?subject=Publication%20Request" style="color:rgb(5, 0, 49); text-decoration:underline;">Full text available upon request.</a>
-                </li>
-
-                <li style="color:#666; font-size:0.95em;">
-                    <strong>A 160-Page Self-Study Guidebook for the Python Programming Language, from Beginner to Advanced</strong><br>
-                    <a href="https://drive.google.com/file/d/1__X_MLyLhsmYOrXzW-umEPQC2Oh2SD-p/view?usp=sharing" style="color:rgb(5, 0, 49); text-decoration:underline;">Under Review</a> | 2022 
-                </li>
-
-                <li style="color:#666; font-size:0.95em;">
-                    <strong>Poetry Writer and Article Contributor</strong><br>
-                    <a href="https://t.me/saengsci/491" style="color:rgb(5, 0, 49); text-decoration:underline;">Simorgh-e Fanni</a> Student Magazine, University of Tehran | 2023 <br>
-                </li>
-
-            </ul>
-        </section>
-
         <hr class="section-divider">
 
         <!-- Favourites Section -->
@@ -198,8 +235,21 @@
 </div>
     </main>
 
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>© <span id="copyright-year">2026</span> Mohammad Montazeri</p>
+            <nav aria-label="Footer navigation">
+                <a href="mailto:mohammadmontazeri313@gmail.com">Contact</a>
+                <a href="assets/CV_Sep2026.pdf" target="_blank" rel="noopener noreferrer">CV ↗</a>
+                <a href="#top">Back to top ↑</a>
+            </nav>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 
     <script data-goatcounter="https://mohammad-montazeri.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
+
