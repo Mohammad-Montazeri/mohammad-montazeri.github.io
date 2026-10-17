@@ -74,7 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const track = carousel.querySelector('.carousel-track');
     const slides = [...carousel.querySelectorAll('.carousel-slide')];
     const dots = [...carousel.querySelectorAll('.carousel-dot')];
-    const pauseButton = carousel.querySelector('.carousel-pause');
     const status = carousel.querySelector('.carousel-status');
     const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
     let current = 0, paused = reducedMotion.matches, hovered = false, focused = false, inView = true;
@@ -84,10 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!paused && !hovered && !focused && inView && !document.hidden) {
             timer = setInterval(() => showSlide(current + 1, false), 6000);
         }
-    }
-    function updatePauseButton() {
-        pauseButton.textContent = paused ? 'Play' : 'Pause';
-        pauseButton.setAttribute('aria-label', paused ? 'Play slideshow' : 'Pause slideshow');
     }
     function showSlide(index, manual = true) {
         current = (index + slides.length) % slides.length;
@@ -100,7 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         if (manual) {
             paused = true;
-            updatePauseButton();
             status.textContent = 'Image ' + (current + 1) + ' of ' + slides.length + ': ' + slides[current].querySelector('figcaption').textContent;
         }
         updateTimer();
@@ -109,7 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
     carousel.querySelectorAll('[data-direction]').forEach(button => {
         button.addEventListener('click', () => showSlide(current + Number(button.dataset.direction)));
     });
-    pauseButton.addEventListener('click', () => { paused = !paused; updatePauseButton(); updateTimer(); });
     carousel.addEventListener('keydown', event => {
         if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
             event.preventDefault();
@@ -133,11 +126,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('visibilitychange', updateTimer);
     reducedMotion.addEventListener('change', () => {
         if (reducedMotion.matches) paused = true;
-        updatePauseButton(); updateTimer();
+        updateTimer();
     });
     new IntersectionObserver(entries => { inView = entries[0].isIntersecting; updateTimer(); }).observe(carousel);
     carousel.classList.add('carousel-ready');
     carousel.querySelector('.carousel-controls').hidden = false;
-    updatePauseButton();
     showSlide(0, false);
 });
