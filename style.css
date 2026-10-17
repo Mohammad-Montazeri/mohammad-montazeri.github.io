@@ -453,3 +453,6 @@ body {
     .fade-in, .slide-up { opacity: 1; transform: none; }
 }
 
+
+/* Compact academic biography */
+#about > p { font-size: 1rem; line-height: 1.65; margin-bottom: 1rem; }
